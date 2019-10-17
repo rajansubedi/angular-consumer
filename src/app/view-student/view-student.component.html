@@ -1,0 +1,98 @@
+<div>
+<table id="dt-select" class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+          <tr>
+            <th>Student Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Marital Status</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th class="text-center">Remove</th>
+            <th class="text-center">Update</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr *ngFor="let stu of students; let i = index">
+            <td>{{stu.studentId}}</td>
+            <td>{{stu.firstName}}</td>
+            <td>{{stu.lastName}}</td>
+            <td>{{stu.gender}}</td>
+            <td>{{stu.maritalStatus}}</td>
+            <td>{{stu.email}}</td>
+            <td>{{stu.phone}}</td>
+            <td>
+              <span class="table-remove"><button type="button"
+                  class="btn btn-danger btn-rounded btn-sm my-0" (click)="deleteStudent(stu.studentId)">Remove</button></span>
+            </td>
+            <td>
+              <span class="table-remove"><button type="button"
+                  class="btn btn-primary btn-rounded btn-sm my-0" data-toggle="modal" [attr.data-target]="'#myModal' + stu.studentId">Update</button></span>
+
+                  <!--update Modal-->
+                  <div class="modal fade" [id]="'myModal'+stu.studentId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">UPDATE STUDENT</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            
+                                                
+                                <div class="container">
+                                  <form #studentForm="ngForm" (ngSubmit)="updateStudent(studentForm)" autocomplete="off">
+                                      
+                                    <div class="form-row mb-2">
+                                          <input type="text" id="studentId" name="studentId" class="form-control" placeholder="StudentId" [ngModel]="stu.studentId">
+                                      </div>
+              
+                                      <div class="form-row mb-2">
+                                          <input type="text" id="fristName" name="firstName" class="form-control" placeholder="First name" [ngModel]="stu.firstName">
+                                      </div>
+                                  
+                                      <div class="form-row mb-2">            
+                                          <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last name" [ngModel]="stu.lastName">
+                                      </div>
+                                      
+                                      <div class="form-row mb-2">
+                                          <input type="text"  id="gender" name="gender" class="form-control" placeholder="Gender" [ngModel]="stu.gender">
+                                      </div>
+                                  
+                                      <div class="form-row mb-2">
+                                          <input type="text"  id="maritalStatus" name="maritalStatus" class="form-control" placeholder="Marital Status" [ngModel]="stu.maritalStatus">
+                                      </div>
+                                  
+                                      <div class="form-row mb-2">
+                                          <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" [ngModel]="stu.email">     
+                                      </div>
+                                  
+                                      <div class="form-row mb-2">
+                                          <input type="text"  id="phone" name="phone" class="form-control" placeholder="Phone number" [ngModel]="stu.phone">
+                                      </div>
+                                      
+                                      <button routerLink="/view" class="btn btn-info my-4 btn-block" type="submit" data-dismiss="modal">Save</button>
+                                  
+                                      </form>
+                                  
+                                  </div>
+                                      
+              
+                          </div>
+                          <div class="modal-footer">
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+            </td>
+
+          </tr>
+        </tfoot>
+      </table>
+     </div>

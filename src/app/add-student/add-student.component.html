@@ -1,0 +1,35 @@
+
+<div class="container">
+<form #studentForm="ngForm" (ngSubmit)="submitStudent(studentForm)" autocomplete="off">
+    <p class="h4 mb-4">ADD STUDENT</p>
+
+    <div class="form-row mb-2">
+        <input type="text" id="fristName" name="firstName" class="form-control" placeholder="First name" ngModel>
+     </div>
+
+     <div class="form-row mb-2">            
+        <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Last name" ngModel>
+    </div>
+    
+    <div class="form-row mb-2">
+        <input type="text"  id="gender" name="gender" class="form-control" placeholder="Gender" ngModel>
+    </div>
+
+    <div class="form-row mb-2">
+         <input type="text"  id="maritalStatus" name="maritalStatus" class="form-control" placeholder="Marital Status" ngModel>
+     </div>
+
+    <div class="form-row mb-2">
+        <input type="email" id="email" name="email" class="form-control" placeholder="Email Address" ngModel>     
+    </div>
+
+     <div class="form-row mb-2">
+         <input type="text"  id="phone" name="phone" class="form-control" placeholder="Phone number" ngModel>
+    </div>
+    
+    <button class="btn btn-info my-4 btn-block" type="submit">Save</button>
+
+    </form>
+
+</div>
+    
